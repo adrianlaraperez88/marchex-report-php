@@ -1,0 +1,31 @@
+{
+    "name": "adrianlaraperez88/marchex-report-php",
+    "description": "Call Report Marchex API  PHP Library",
+    "keywords": [     
+      "marchex",
+      "reports",
+      "call tracking",
+      "api"
+    ],
+    "homepage": "https://github.com/adrianlaraperez88/marchex-report-php",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Adrian Lara",
+            "email": "adrianlaraperez88@gmail.com",
+            "homepage": "https://github.com/adrianlaraperez88"
+        }
+    ],
+    "require-dev": {
+        "phpunit/phpunit": "4.0.*"
+    },
+    "require": {
+      "php": ">= 5.6.0",
+      "guzzlehttp/guzzle": "^6.3"
+    },
+    "autoload": {
+      "psr-4": {
+        "Marchex\\": "src/"
+      }
+    }
+}
