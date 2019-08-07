@@ -76,10 +76,26 @@ class Call
 	 * @param array $params
 	 * @return array A list of calls matching the requested criteria.
 	 **/
-	public static function search($account_id, $opts = [])
+	public function search($account_id, $opts = [])
 	{
 		$request = new Request();
 		$request->send('call.search', [ $account_id, $opts ]);
 		return $request->getOutput();
+	}
+	
+	/**
+	 * Get Yesterday calls.
+	 *
+	 * @param string $account_id
+	 * @return array A list of calls matching the requested criteria.
+	 **/
+	public function getYesterdayCalls($account_id)
+	{
+		$opts = array(
+						'start' => date('Y-m-d\T00:00:00-05:00',strtotime('-1 day')),
+						'end' => date('Y-m-d\T23:59:59-05:00',strtotime('-1 day'))
+					 );
+
+		return $this->search($account_id, $opts);
 	}
 }
