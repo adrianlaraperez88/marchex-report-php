@@ -76,10 +76,10 @@ class Call
 	 * @param array $params
 	 * @return array A list of calls matching the requested criteria.
 	 **/
-	public function search($account_id, $opts = [])
+	public function search($account_id, $params = [])
 	{
 		$request = new Request();
-		$request->send('call.search', [ $account_id, $opts ]);
+		$request->send('call.search', [ $account_id, $params ]);
 		return $request->getOutput();
 	}
 	
