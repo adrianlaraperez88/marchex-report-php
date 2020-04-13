@@ -13,7 +13,7 @@ class Call
 	 * List of valid search parameters
 	 * @var array
 	 **/
-	const VALID_SEARCH_PARAMS = [
+	private $validSearch = [
 		'start', 'end', 'assto', 'call_boundary',
 		'callerid', 'cmpid', 'dispo', 'dna_class',
 		'exact_times', 'grpid', 'include_dna',
@@ -22,7 +22,11 @@ class Call
 		'subacct',
 	];
 
-	const VALID_AUDIO_FORMAT = ['mp3','wav'];
+	/**
+	 * List of valid Audio formats
+	 * @var array
+	 **/
+	private $validAudioFormat = array('mp3','wav');
 
 	/**
 	*
@@ -65,7 +69,7 @@ class Call
 	public function audio_url($call_ids, $format = null)
 	{	
 		if ( isset($format) ){
-			$format = in_array($format, VALID_AUDIO_FORMAT) ? $format : 'mp3';	
+			$format = in_array($format, $this->validAudioFormat) ? $format : 'mp3';	
 		}else{
 			$format = 'mp3';
 		}
